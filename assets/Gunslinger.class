@@ -1,0 +1,42 @@
+package assets;
+
+//Abstract superclass to create characters
+public abstract class Gunslinger{
+    //Atributes
+    protected short health, action;
+    protected boolean isLoaded;
+
+    //Methods
+    //Getters {
+    public boolean getIsLoaded(){
+        /* Method to check if the
+        *  gunslinger can fire
+        */
+        return this.isLoaded;
+    }
+
+    public short getHealth(){
+        /*  Method to check if gunslinger
+         *  is dead (hp <= 0)
+         */
+        return this.health;
+    }
+    //}
+    
+    public abstract short setAction(short op);
+    /* Method to check what the gunslinger will do
+    *  based on an option (fire, dodge or reload).
+    *  Action will be manual for player and random-ish
+    *  for the npc.
+    */
+
+    public void gotShot(){
+        // Reduce HP if got hit
+        this.health--;
+    }
+
+    public void reloadGun(){
+        // Reload gun / change isLoaded value
+        this.isLoaded = true;
+    }
+}
