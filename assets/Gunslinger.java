@@ -11,11 +11,12 @@ public abstract class Gunslinger{
     //Constructor
     public Gunslinger(short hp){
         this.health = hp;
+        this.isLoaded = true;
     }
 
     //Getters {
     public boolean getIsLoaded(){
-        /* Method to check if the
+        /*  Method to check if the
          *  gunslinger can fire
          */
         return this.isLoaded;
@@ -29,11 +30,14 @@ public abstract class Gunslinger{
     }
     //}
 
-    public abstract short setAction();
-    /* Method to check what the gunslinger will do
+    public abstract void setAction(short act);
+    /*  Method to check what the gunslinger will do
      *  based on an option (fire, dodge or reload).
      *  Action will be manual for player and random-ish
-     *  for the npc.
+     *  for the npc. List for values to each action:
+     *  0 - Fire
+     *  1 - Reload
+     *  2 - Dodge
      */
 
     public void gotShot(){
@@ -49,14 +53,14 @@ public abstract class Gunslinger{
 
 public class Player extends Gunslinger{
 
-    public short setAction(short op){
-        this.action = short;
+    public void setAction(short act){
+        this.action = act;
     }
 }
 
 public class Enemy extends Gunslinger{
 
-    public short setAction(){
+    public void setAction(short act){
         //Random method to choose enemy's action
         /*  The enemy will have to choose between
          *  firing, reloading or dodging, but, some
@@ -66,6 +70,21 @@ public class Enemy extends Gunslinger{
          *  firing if it isn't.
          */
 
-        //parei aqui
+        //Choose random value among 0, 1 or 2
+        act = (short) (Math.random()*3);
+
+        //Gun is loaded (can't reload)
+        if (this.getIsLoaded()){
+            //Change value until 0 or 2
+            while (act == 1){
+                act = (short) (Math.random()*3);
+            }
+        } else { //Gun isn't loaded (can't fire)
+            //Pick value 0 or 1 and add (now 1 or 2)
+            act = (short) ((Math.random()*2) + 1);
+        }
+
+        this.action = act;
+
     }
 }
