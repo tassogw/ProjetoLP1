@@ -13,7 +13,7 @@ public abstract class Gunslinger{
         this.health = 100;
         this.isLoaded = true;
     }
-    public Gunslinger(short hp){
+    public Gunslinger(int hp){
         this.health = hp;
         this.isLoaded = true;
     }
@@ -64,7 +64,7 @@ public abstract class Gunslinger{
         if(damage - this.health < 0){
             this.health = 0;
         }else{
-            this.health = (short)(this.health - damage);
+            this.health -= damage;
         }
     }
 
