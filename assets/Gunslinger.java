@@ -16,8 +16,8 @@ public abstract class Gunslinger{
     //Getters {
     public boolean getIsLoaded(){
         /* Method to check if the
-        *  gunslinger can fire
-        */
+         *  gunslinger can fire
+         */
         return this.isLoaded;
     }
 
@@ -28,13 +28,13 @@ public abstract class Gunslinger{
         return this.health;
     }
     //}
-    
+
     public abstract short setAction();
     /* Method to check what the gunslinger will do
-    *  based on an option (fire, dodge or reload).
-    *  Action will be manual for player and random-ish
-    *  for the npc.
-    */
+     *  based on an option (fire, dodge or reload).
+     *  Action will be manual for player and random-ish
+     *  for the npc.
+     */
 
     public void gotShot(){
         // Reduce HP if got hit
