@@ -1,7 +1,7 @@
 package assets;
 
 //Abstract superclass to create characters
-public abstract class Gunslinger{
+public abstract class Gunslinger {
     //Atributes
     private int health;
     private int action;
@@ -9,42 +9,45 @@ public abstract class Gunslinger{
 
     //Methods
     //Constructor
-    public Gunslinger(){
+    public Gunslinger() {
         this.health = 100;
         this.isLoaded = true;
     }
-    public Gunslinger(int hp){
+
+    public Gunslinger(int hp) {
         this.health = hp;
         this.isLoaded = true;
     }
 
     //Getters {
-    public boolean getIsLoaded(){
+    public boolean getIsLoaded() {
         /*  Method to check if the
          *  gunslinger can fire
          */
         return this.isLoaded;
     }
 
-    public int getHealth(){
+    public int getHealth() {
         /*  Method to check if gunslinger
          *  is dead (hp <= 0)
          */
         return this.health;
     }
-    public boolean isGunslingerAlive(){
-        if(this.getHealth() == 0 ){
+
+    public boolean isGunslingerAlive() {
+        if (this.getHealth() == 0) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }
     //}
 
-    public void setAction(int act){
-
-            this.action = act;
-
+    public void setAction(int act) {
+        this.action = act;
+        if (this.getAction() == 0) {
+            this.setIsLoaded(false);
+        }
     }
 
     public int getAction() {
@@ -59,20 +62,21 @@ public abstract class Gunslinger{
      *  2 - Dodge
      */
 
-    public void gotShot(int damage){
+    public void gotShot(int damage) {
         // Reduce HP if got hit
-        if(damage - this.health < 0){
+        if (this.health - damage < 0) {
             this.health = 0;
-        }else{
+        } else {
             this.health -= damage;
         }
     }
 
-    public void reloadGun(){
+    public void reloadGun() {
         // Reload gun / change isLoaded value
         this.isLoaded = true;
     }
-    public void setIsLoaded(boolean value){
+
+    public void setIsLoaded(boolean value) {
         this.isLoaded = value;
     }
 }
