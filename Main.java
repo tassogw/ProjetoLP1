@@ -59,7 +59,7 @@ public class Main {
             //Compare results
             //Same actions
             if (player.getAction() == enemy.getAction() && player.getAction() == 0) {
-            //Both shot
+                //Both shot
                 System.out.println("Both shot...");
                 //Check who got shot (one, both, or none)
                 random = randomAction(4);
@@ -88,32 +88,32 @@ public class Main {
                         break;
                     case 3:
                         //None got shot
-                        System.out.println("but missed.");
+                        System.out.println("both missed.");
                         System.out.println(); //Skip a line
                         break;
                 }
 
             } else if (player.getAction() == enemy.getAction() && player.getAction() == 1) {
-            //Both reloaded
+                //Both reloaded
                 System.out.println("Both reloaded.");
                 //Reload guns
                 player.reloadGun();
                 enemy.reloadGun();
                 System.out.println(); //Skip a line
             } else if (player.getAction() == enemy.getAction() && player.getAction() == 2) {
-            //Both dodged
+                //Both dodged
                 System.out.println("Both dodged.");
                 System.out.println(); //Skip a line
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 0 && enemy.getAction() == 1) {
-            //Player shot while enemy was reloading
+                //Player shot while enemy was reloading
                 enemy.gotShot(damage);
                 printGunslingerHealths(player, enemy, 1);
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 1 && enemy.getAction() == 0) {
-            //Enemy shot while player was reloading
+                //Enemy shot while player was reloading
                 player.gotShot(damage);
                 printGunslingerHealths(player, enemy, 0);
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 0 && enemy.getAction() == 2) {
-            //Player shot and enemy tried to dodge
+                //Player shot and enemy tried to dodge
                 random = randomAction(2);
                 switch (random) {
                     case 0:
@@ -131,7 +131,7 @@ public class Main {
                         break;
                 }
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 2 && enemy.getAction() == 0) {
-            //Enemy shot and player tried to dodge
+                //Enemy shot and player tried to dodge
                 random = randomAction(2);
                 switch (random) {
                     case 0:
@@ -149,13 +149,13 @@ public class Main {
                         break;
                 }
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 1 && enemy.getAction() == 2) {
-            //Enemy dodged and player reloaded
+                //Enemy dodged and player reloaded
                 System.out.printf("Enemy dodged.%n");
                 player.reloadGun();
                 System.out.printf("%s reloaded.%n", player.getName());
 
             } else if (player.getAction() != enemy.getAction() && player.getAction() == 2 && enemy.getAction() == 1) {
-            //Player dodged and enemy reloaded
+                //Player dodged and enemy reloaded
                 System.out.printf("Enemy reloaded.%n");
                 enemy.reloadGun();
                 System.out.printf("%s dodged.%n", player.getName());
