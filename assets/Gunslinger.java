@@ -5,7 +5,7 @@ public abstract class Gunslinger {
     //Atributes
     private int health;
     private int action;
-    protected boolean isLoaded;
+    private boolean isLoaded;
 
     //Methods
     //Constructor
@@ -34,14 +34,6 @@ public abstract class Gunslinger {
         return this.health;
     }
 
-    public boolean isGunslingerAlive() {
-        if (this.getHealth() == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-    //}
 
     public void setAction(int act) {
         this.action = act;
